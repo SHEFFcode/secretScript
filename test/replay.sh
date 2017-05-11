@@ -47,6 +47,9 @@ function process()
 function ProdVsQa()
 {
     # Search through each existing directory
+    cd ..
+    root=$PWD
+    cd test
     for d in */ ; do
         f=$(echo "$d" | sed -e 's/\///g')
         # Check if video in prod same as qa
@@ -56,8 +59,8 @@ function ProdVsQa()
         echo "Video size for ${f}-prod.mp4: $size4Prod"
         echo "Video size for ${f}-qa.mp4: $size4Qa"
         
-        #if [ "$size4Prod" == "$size4Qa" ] 
-        #then
+        if [ "$size4Prod" == "$size4Qa" ] 
+        then
             video2img "$PWD/$f/${f}-prod.mp4" $f "1/2" "${f}-prod"
             video2img "$PWD/$f/${f}-qa.mp4" $f "1/2" "${f}-qa"
             # Check how many images created
@@ -66,12 +69,12 @@ function ProdVsQa()
             totalFiles=$((${numOfFiles}/2))
             echo "number of files: ${numOfFiles} and divide by two: ${totalFiles}"
             for (( i=1; i<$totalFiles; i++ )); do
-               node /Users/jeremy.shefer/personal/forAllan/resemble/index.js "${f}-prod${i}".jpg "${f}-qa${i}".jpg diff${i}.png
+               node "$root/index.js" "${f}-prod${i}".jpg "${f}-qa${i}".jpg diff${i}.png $i
             done
             cd ..
-        #else
-         #   echo "Size of the video is not the same for ${f}-prod.mp4: $size4Prod and for ${f}-qa.mp4: $size4Qa"
-        #fi
+        else
+            echo "Size of the video is not the same for ${f}-prod.mp4: $size4Prod and for ${f}-qa.mp4: $size4Qa"
+        fi
     done
 }
 

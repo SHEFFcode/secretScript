@@ -16,8 +16,8 @@ resemble(github_img1).onComplete(function(data){
 resemble(github_img1).compareTo(github_img2).onComplete(function(data){
     console.log(data);
 
-    fs.writeFileSync('result.txt', JSON.stringify(data));
-
+    fs.appendFile('results.txt', JSON.stringify(data) + ', ');
+    
     src = data.getImageDataUrl();
 });
 
