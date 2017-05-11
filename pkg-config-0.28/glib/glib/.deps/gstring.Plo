@@ -22,7 +22,7 @@ gstring.lo: gstring.c ../config.h /usr/include/unistd.h \
   /usr/include/sys/_types/_fd_copy.h /usr/include/sys/_select.h \
   /usr/include/sys/_types/_dev_t.h /usr/include/sys/_types/_mode_t.h \
   /usr/include/sys/_types/_uuid_t.h /usr/include/gethostuuid.h \
-  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/stdarg.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/stdarg.h \
   /usr/include/stdlib.h /usr/include/sys/wait.h \
   /usr/include/sys/_types/_id_t.h /usr/include/sys/signal.h \
   /usr/include/machine/signal.h /usr/include/i386/signal.h \
@@ -31,7 +31,7 @@ gstring.lo: gstring.c ../config.h /usr/include/unistd.h \
   /usr/include/sys/_pthread/_pthread_attr_t.h \
   /usr/include/sys/_types/_sigaltstack.h \
   /usr/include/sys/_types/_ucontext.h /usr/include/sys/resource.h \
-  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/stdint.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/stdint.h \
   /usr/include/stdint.h /usr/include/sys/_types/_int8_t.h \
   /usr/include/sys/_types/_int16_t.h /usr/include/sys/_types/_int32_t.h \
   /usr/include/sys/_types/_int64_t.h /usr/include/_types/_uint8_t.h \
@@ -51,13 +51,13 @@ gstring.lo: gstring.c ../config.h /usr/include/unistd.h \
   /usr/include/secure/_string.h /usr/include/ctype.h \
   /usr/include/runetype.h /usr/include/sys/_types/_wint_t.h gstring.h \
   ../glib/gtypes.h glibconfig.h ../glib/gmacros.h \
-  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/stddef.h \
-  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/__stddef_max_align_t.h \
-  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/limits.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/stddef.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/__stddef_max_align_t.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/limits.h \
   /usr/include/limits.h /usr/include/machine/limits.h \
   /usr/include/i386/limits.h /usr/include/i386/_limits.h \
   /usr/include/sys/syslimits.h \
-  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/float.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/float.h \
   ../glib/gversionmacros.h /usr/include/time.h \
   /usr/include/sys/_types/_clock_t.h ../glib/gunicode.h ../glib/gerror.h \
   ../glib/gquark.h ../glib/gutils.h gprintf.h glib.h ../glib/galloca.h \
@@ -184,7 +184,7 @@ gstring.lo: gstring.c ../config.h /usr/include/unistd.h \
 
 /usr/include/gethostuuid.h:
 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/stdarg.h:
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/stdarg.h:
 
 /usr/include/stdlib.h:
 
@@ -212,7 +212,7 @@ gstring.lo: gstring.c ../config.h /usr/include/unistd.h \
 
 /usr/include/sys/resource.h:
 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/stdint.h:
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/stdint.h:
 
 /usr/include/stdint.h:
 
@@ -292,11 +292,11 @@ glibconfig.h:
 
 ../glib/gmacros.h:
 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/stddef.h:
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/stddef.h:
 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/__stddef_max_align_t.h:
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/__stddef_max_align_t.h:
 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/limits.h:
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/limits.h:
 
 /usr/include/limits.h:
 
@@ -308,7 +308,7 @@ glibconfig.h:
 
 /usr/include/sys/syslimits.h:
 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/float.h:
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/float.h:
 
 ../glib/gversionmacros.h:
 

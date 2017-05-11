@@ -56,17 +56,17 @@ grand.lo: grand.c ../config.h /usr/include/math.h \
   /usr/include/sys/_select.h /usr/include/sys/_types/_uuid_t.h \
   /usr/include/gethostuuid.h grand.h ../glib/gtypes.h glibconfig.h \
   ../glib/gmacros.h \
-  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/stddef.h \
-  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/__stddef_max_align_t.h \
-  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/limits.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/stddef.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/__stddef_max_align_t.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/limits.h \
   /usr/include/limits.h /usr/include/machine/limits.h \
   /usr/include/i386/limits.h /usr/include/i386/_limits.h \
   /usr/include/sys/syslimits.h \
-  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/float.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/float.h \
   ../glib/gversionmacros.h /usr/include/time.h genviron.h gmain.h \
   ../glib/gpoll.h ../glib/gslist.h ../glib/gmem.h ../glib/gthread.h \
   ../glib/gatomic.h ../glib/gerror.h \
-  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/stdarg.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/stdarg.h \
   ../glib/gquark.h gmem.h gtestutils.h ../glib/gmessages.h \
   ../glib/gstring.h ../glib/gunicode.h ../glib/gutils.h gthread.h
 
@@ -262,11 +262,11 @@ glibconfig.h:
 
 ../glib/gmacros.h:
 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/stddef.h:
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/stddef.h:
 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/__stddef_max_align_t.h:
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/__stddef_max_align_t.h:
 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/limits.h:
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/limits.h:
 
 /usr/include/limits.h:
 
@@ -278,7 +278,7 @@ glibconfig.h:
 
 /usr/include/sys/syslimits.h:
 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/float.h:
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/float.h:
 
 ../glib/gversionmacros.h:
 
@@ -300,7 +300,7 @@ gmain.h:
 
 ../glib/gerror.h:
 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include/stdarg.h:
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include/stdarg.h:
 
 ../glib/gquark.h:
 
