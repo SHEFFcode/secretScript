@@ -21,6 +21,12 @@ function pullImage()
     
 }
 
+# Parsing json file result
+function jsonval(){
+temp=`echo $json | sed 's/\\\\\//\//g' | sed 's/[{}]//g' | awk -v k="text" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}' | sed 's/\"\:\"/\|/g' | sed 's/[\,]/ /g' | sed 's/\"//g' | grep -w $prop  | cut -d":" -f2| sed -e 's/^ *//g' -e 's/ *$//g' `
+    echo ${temp##*|}
+}
+
 #process is analysis the file and to determine what is needed.
 # $1
 function process()
@@ -46,6 +52,7 @@ function process()
 # Examine videos
 function ProdVsQa()
 {
+    prop='misMatchPercentage'
     # Search through each existing directory
     cd ..
     root=$PWD
@@ -69,14 +76,38 @@ function ProdVsQa()
             totalFiles=$((${numOfFiles}/2))
             echo "number of files: ${numOfFiles} and divide by two: ${totalFiles}"
             for (( i=1; i<$totalFiles; i++ )); do
-               node "$root/index.js" "${f}-prod${i}".jpg "${f}-qa${i}".jpg diff${i}.png $i
+               node "$root/index.js" "${f}-prod${i}".jpg "${f}-qa${i}".jpg ${i}
             done
+            # Grabing each image results and determine pass or fail.
+            for (( i=1; i<$totalFiles; i++ )); do
+                json=$(cat "results${i}.json")
+                percent=$(jsonval)
+                percent=${percent%.*}
+                if [[ $percent -lt "1" ]]; then                    
+                    rm "diff${i}.png"
+                    rm "results${i}.json"
+                else
+                    echo "$f percentage is: $percent"
+                fi
+            done
+            name="diff*.png"
+            ls -l $name > /dev/null
+ 
+            if [ "$?" -eq "0" ]
+            then
+                echo "$f,Fail" >> $root/output.csv
+            else
+                echo "$f,Pass" >> $root/output.csv
+            fi
             cd ..
         else
             echo "Size of the video is not the same for ${f}-prod.mp4: $size4Prod and for ${f}-qa.mp4: $size4Qa"
         fi
     done
 }
+
+# Global Variables
+
 
 # Read download file parameter
 # E.g. bash replay.sh list.txt
