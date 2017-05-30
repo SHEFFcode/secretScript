@@ -13,10 +13,11 @@ function video2img()
 
 function pullImage()
 {
-    #echo $client$3
+    echo "curl -o $PWD/$client/$client$3.mp4 $1"
     #curl -o "$PWD/$client$3/$client$3.mp4" $1
     echo $client$3
-    curl -o "$PWD/$client/$client$3.mp4" $1
+    URL=${1%$'\r'}
+    curl -o "$PWD/$client/$client$3.mp4" $URL
     numOfFiles=$(ls | wc -l)
     
 }
@@ -31,17 +32,30 @@ temp=`echo $json | sed 's/\\\\\//\//g' | sed 's/[{}]//g' | awk -v k="text" '{n=s
 # $1
 function process()
 {
-    echo "$1"
+    echo "Parameter 1 : $1"
     if [[ $1 != "http"* ]]; then
-        client=$3
-        #mkdir "${client}-qa"
-        #mkdir "${client}-prod"
-        mkdir $client
+        client=${5%$'\r'}
+	#client='echo $client | sed 's/\(\[\|\]\)//g''
+        echo "client: $client"
+        # Check if this already created
+        if [ -d "$client" ]; then
+            count=1
+            while [ -d "$client" ]
+            do
+                client="$client$count"
+                (( count++ ))
+            done
+            mkdir $client
+        else
+            mkdir $client
+        fi
         #client=${1}
     fi
     if [[ $1 =~ "https://qa"* ]]; then
+    #if [[ $1 =~ "https://dev"* ]]; then
         echo "QA: $client"
         pullImage $1 $client "-qa"
+        #pullImage $1 $client "-dev"
     fi
     if [[ $1 =~ "https://replay"* ]]; then
         echo "Prod: $client"
@@ -62,14 +76,17 @@ function ProdVsQa()
         # Check if video in prod same as qa
         size4Prod=$(ffmpeg -i "$f/$f-prod.mp4" 2>&1 | grep "Duration" | cut -d ' ' -f 4 | sed s/,//)
         size4Qa=$(ffmpeg -i "$f/$f-qa.mp4" 2>&1 | grep "Duration" | cut -d ' ' -f 4 | sed s/,//)
+        #size4Qa=$(ffmpeg -i "$f/$f-dev.mp4" 2>&1 | grep "Duration" | cut -d ' ' -f 4 | sed s/,//)
         
         echo "Video size for ${f}-prod.mp4: $size4Prod"
         echo "Video size for ${f}-qa.mp4: $size4Qa"
+        #echo "Video size for ${f}-dev.mp4: $size4Qa"
         
         if [ "$size4Prod" == "$size4Qa" ] 
         then
             video2img "$PWD/$f/${f}-prod.mp4" $f "1/2" "${f}-prod"
             video2img "$PWD/$f/${f}-qa.mp4" $f "1/2" "${f}-qa"
+            #video2img "$PWD/$f/${f}-dev.mp4" $f "1/2" "${f}-qa"
             # Check how many images created
             cd "$PWD/$f"
             numOfFiles=$(ls | wc -l)
@@ -102,6 +119,7 @@ function ProdVsQa()
             cd ..
         else
             echo "Size of the video is not the same for ${f}-prod.mp4: $size4Prod and for ${f}-qa.mp4: $size4Qa"
+            #echo "Size of the video is not the same for ${f}-prod.mp4: $size4Prod and for ${f}-dev.mp4: $size4Qa"
         fi
     done
 }

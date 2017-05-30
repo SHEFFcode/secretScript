@@ -16,14 +16,14 @@ resemble(github_img1).onComplete(function(data){
 resemble(github_img1).compareTo(github_img2).onComplete(function(data){
     console.log(data);
 
-    fs.appendFile('results.txt', JSON.stringify(data) + ', ');
+    fs.appendFile('results'+ args[2] + '.json', JSON.stringify(data));
     
     src = data.getImageDataUrl();
 });
 
 var base64Data = src.replace(/^data:image\/png;base64,/, "");
 
-fs.writeFile(args[2], base64Data, 'base64', function(err) {
+fs.writeFile("diff" + args[2] + ".png" , base64Data, 'base64', function(err) {
   console.log(err);
 
   if (!err) {
